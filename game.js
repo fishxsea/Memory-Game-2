@@ -91,9 +91,9 @@ gameBoard.addEventListener('click', (e) => {
 		activeColors = [];
 		activeCells = [];
 		setTimeout(() => {
-			container.style.backgroundColor = '#006d4e';
+			container.style.backgroundColor = '#713db0';
 		}, 500);
-		container.style.backgroundColor = '#008b64';
+		container.style.backgroundColor = '#894cd3';
 	}
 
 	// console.log(e);
