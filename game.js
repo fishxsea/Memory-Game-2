@@ -1,6 +1,6 @@
 // querySelectors
 ///
-const container = document.querySelector('#container');
+const container = document.querySelector('#game-container');
 const gameBoard = document.querySelector('#game-board');
 const restart = document.querySelector('#restart');
 const body = document.querySelector('body');
@@ -60,8 +60,13 @@ let activeColors = [];
 let activeCells = [];
 
 gameBoard.addEventListener('click', (e) => {
-	cellColor = e.target.style.backgroundColor;
+	const cellColor = e.target.style.backgroundColor;
+	const targ = e.target.className;
+
 	e.target.classList.remove('hidden-style');
+	if (targ === 'grid-cell hidden-style') {
+		e.target.classList.add('disable-input');
+	}
 
 	if (e.target.style.backgroundColor !== '') {
 		activeColors.push(cellColor);
@@ -72,6 +77,8 @@ gameBoard.addEventListener('click', (e) => {
 		setTimeout(() => {
 			activeCells[0].target.classList.add('hidden-style');
 			e.target.classList.add('hidden-style');
+			activeCells[0].target.classList.remove('disable-input');
+			activeCells[1].target.classList.remove('disable-input');
 			activeColors = [];
 			activeCells = [];
 			container.classList.remove('disable-input');

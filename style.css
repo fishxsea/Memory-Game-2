@@ -17,7 +17,7 @@ body {
   transition: 500ms;
 }
 
-#container {
+#game-container {
   display: flex;
   justify-content:space-evenly;
   align-items: center;
@@ -32,7 +32,7 @@ body {
 
 #header {
   display: flex;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   align-items: center;
   flex-direction: column;
   user-select: none;
@@ -41,7 +41,7 @@ body {
 #title {
   display: flex;
   font-size: 4rem;
-  margin-bottom: 2rem;
+  
 }
 
 #restart {
@@ -69,6 +69,7 @@ body {
   transition: 300ms;
   margin: 1rem .5rem;
   border-radius: 8px;
+  z-index: 9999;
 }
 
 
@@ -85,6 +86,7 @@ body {
 .cell-down {
 transform: scale(.9);
 box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.7);
+z-index: 9999;
 
 }
 
