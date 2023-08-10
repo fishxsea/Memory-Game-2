@@ -17,15 +17,6 @@ const colors = [
 	'pink',
 ];
 
-// function bgPopulate(parent) {
-// 	for (let i = 0; i < 30; i++) {
-// 		const bgCell = document.createElement('div');
-// 		bgCell.classList.add('bg-cell');
-// 		parent.appendChild(bgCell);
-// 	}
-// }
-// bgPopulate(bg);
-
 function randomShuffle(arr) {
 	for (let i = arr.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
@@ -97,19 +88,18 @@ gameBoard.addEventListener('click', (e) => {
 		}, 500);
 		container.style.backgroundColor = '#894cd3';
 	}
-
-	// console.log(e);
-	// console.log(cellColor);
 });
 
 restart.addEventListener('click', () => {
 	gameBoard.style.transition = '300ms';
 	gameBoard.style.transform = 'rotate(360deg)';
+	gameBoard.style.opacity = 0;
 	setTimeout(() => {
 		gameBoard.innerText = '';
 		activeCells = [];
 		activeColors = [];
 		gameBoard.style.transform = '';
+		gameBoard.style.opacity = 100;
 		createBoard(gameBoard);
 	}, 300);
 });
