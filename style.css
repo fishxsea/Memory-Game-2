@@ -58,6 +58,7 @@ body {
   display: flex;
   flex-direction: row;
   transform: rotate(45deg);
+  transition: 500ms;
 }
 
 .grid-row {
@@ -68,11 +69,11 @@ body {
 .grid-cell {
   width: var(--size);
   height: var(--size);
-  background-color: white;
+  border: 2px solid transparent;
   transition: 300ms;
   margin: 1rem .5rem;
   border-radius: 8px;
-  z-index: 9999;
+
 }
 
 
@@ -87,12 +88,11 @@ body {
 }
 
 .cell-down {
-transform: rotate(45deg);
-box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.7);
-z-index: 9999;
-
+  transform: rotate(45deg);
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.8);
 
 }
+
 
 /* Hover Effects */
 

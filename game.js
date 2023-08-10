@@ -4,12 +4,13 @@ const container = document.querySelector('#game-container');
 const gameBoard = document.querySelector('#game-board');
 const restart = document.querySelector('#restart');
 const body = document.querySelector('body');
+const uiGrid = document.querySelector('.grid');
 
 const colors = [
 	'red',
 	'orange',
 	'yellow',
-	'green',
+	'aqua',
 	'blue',
 	'darkblue',
 	'purple',
@@ -36,7 +37,7 @@ function randomShuffle(arr) {
 function createBoard(parent) {
 	const shuffledColors = randomShuffle([...colors, ...colors]);
 
-	let grid = document.createElement('div');
+	const grid = document.createElement('div');
 	grid.classList.add('grid');
 
 	// creates a row and appends it to the grid element
@@ -45,6 +46,7 @@ function createBoard(parent) {
 		rowDiv.classList.add('grid-row');
 		grid.appendChild(rowDiv);
 
+		// creates a cell to append to row
 		for (let cell = 0; cell < 4; cell++) {
 			const cellDiv = document.createElement('div');
 			cellDiv.classList.add('grid-cell');
@@ -101,10 +103,15 @@ gameBoard.addEventListener('click', (e) => {
 });
 
 restart.addEventListener('click', () => {
-	gameBoard.innerText = '';
-	activeCells = [];
-	activeColors = [];
-	createBoard(gameBoard);
+	gameBoard.style.transition = '300ms';
+	gameBoard.style.transform = 'rotate(360deg)';
+	setTimeout(() => {
+		gameBoard.innerText = '';
+		activeCells = [];
+		activeColors = [];
+		gameBoard.style.transform = '';
+		createBoard(gameBoard);
+	}, 300);
 });
 
 createBoard(gameBoard);
