@@ -92,7 +92,7 @@ gameBoard.addEventListener('click', (e) => {
 
 restart.addEventListener('click', () => {
 	gameBoard.style.transition = '300ms';
-	gameBoard.style.transform = 'rotate(360deg)';
+	gameBoard.style.transform = 'rotateY(90deg)';
 	gameBoard.style.opacity = 0;
 	setTimeout(() => {
 		gameBoard.innerText = '';
